@@ -571,16 +571,16 @@ export default function DoorDashProfitCalculator() {
             </div>
 
             <div style={{ background: "white", borderRadius: "24px", padding: "24px", marginTop: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.12)" }}>
-              <h3 style={{ marginTop: 0 }}>See what top DoorDash drivers do differently</h3>
+              <h3 style={{ marginTop: 0 }}>Optional: get future driver profit tips</h3>
               <p style={{ color: "#64748b", fontSize: "14px" }}>
-                Learn the strategies higher-earning drivers use to increase take-home pay, reduce taxes, lower vehicle costs, and avoid common profit-killing mistakes.
+                The articles below are completely free. If you want future DoorDash strategy breakdowns, tax tips, and profitability guides, you can optionally join the email list.
               </p>
               <div style={{ display: "grid", gap: "12px", marginTop: "14px" }}>
                 <input type="text" placeholder="First name" style={inputStyle} />
                 <input type="email" placeholder="Email address" style={inputStyle} />
-                <div style={{ fontSize: "12px", color: "#64748b", marginBottom: "2px" }}>No spam. Unsubscribe anytime.</div>
+                <div style={{ fontSize: "12px", color: "#64748b", marginBottom: "2px" }}>Optional signup. No spam. Unsubscribe anytime.</div>
                 <button style={{ background: "#0f172a", color: "white", border: 0, borderRadius: "14px", padding: "14px", fontWeight: 700, cursor: "pointer" }}>
-                  Show me what top drivers do differently
+                  Send me future driver tips
                 </button>
               </div>
 
