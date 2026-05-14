@@ -569,23 +569,9 @@ export default function DoorDashProfitCalculator() {
                 </div>
               )}
             </div>
-
             <div style={{ background: "white", borderRadius: "24px", padding: "24px", marginTop: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.12)" }}>
-              <h3 style={{ marginTop: 0 }}>Optional: get future driver profit tips</h3>
-              <p style={{ color: "#64748b", fontSize: "14px" }}>
-                The articles below are completely free. If you want future DoorDash strategy breakdowns, tax tips, and profitability guides, you can optionally join the email list.
-              </p>
-              <div style={{ display: "grid", gap: "12px", marginTop: "14px" }}>
-                <input type="text" placeholder="First name" style={inputStyle} />
-                <input type="email" placeholder="Email address" style={inputStyle} />
-                <div style={{ fontSize: "12px", color: "#64748b", marginBottom: "2px" }}>Optional signup. No spam. Unsubscribe anytime.</div>
-                <button style={{ background: "#0f172a", color: "white", border: 0, borderRadius: "14px", padding: "14px", fontWeight: 700, cursor: "pointer" }}>
-                  Send me future driver tips
-                </button>
-              </div>
-
-              <div style={{ marginTop: "22px", background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
-                <strong style={{ display: "block", marginBottom: "10px" }}>Driver strategy breakdowns</strong>
+              <div style={{ background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
+                <strong style={{ display: "block", marginBottom: "10px" }}>What top drivers do differently</strong>
                 <p style={{ fontSize: "14px", color: "#475569", lineHeight: 1.7, marginBottom: "14px" }}>
                   Learn how experienced drivers think about profitability, multi-apping, mileage efficiency, acceptance rates, and real take-home pay.
                 </p>
