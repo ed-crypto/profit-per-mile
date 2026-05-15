@@ -72,9 +72,7 @@ export default function DoorDashProfitCalculator() {
   const estimatedTaxes = Math.max(profitBeforeTax, 0) * (taxRateNumber / 100);
   const profitAfterTax = profitBeforeTax - estimatedTaxes;
   const hourlyAfterTax = hoursNumber > 0 ? profitAfterTax / hoursNumber : 0;
-  const revenuePerMile = milesNumber > 0 ? revenueNumber / milesNumber : 0;
   const profitPerMile = milesNumber > 0 ? profitAfterTax / milesNumber : 0;
-  const expensePerMile = milesNumber > 0 ? totalExpensesBeforeTax / milesNumber : 0;
   const variableCostPerMile = milesNumber > 0 ? variableCosts / milesNumber : 0;
   const fixedCostPerMile = milesNumber > 0 ? fixedCosts / milesNumber : 0;
 
@@ -125,7 +123,7 @@ export default function DoorDashProfitCalculator() {
             ← Back to calculator
           </button>
           <article style={cardStyle}>
-            <h1 style={{ marginTop: 0, fontSize: "36px" }}>Multi-app drivers vs single-app drivers: who actually keeps more?</h1>
+            <h1 style={{ marginTop: 0, fontSize: "36px" }}>Some multi-app drivers earn up to 3x more — but at what cost?</h1>
             <p style={{ color: "#475569", lineHeight: 1.7 }}>
               Multi-apping can increase gross earnings and reduce downtime by giving drivers more order options. But it can also increase app-switching stress, decision fatigue, and the risk of inefficient routing if orders are not selected carefully. The winner is not always the driver with the highest weekly revenue.
             </p>
@@ -407,12 +405,12 @@ export default function DoorDashProfitCalculator() {
           <div style={{ display: "inline-block", background: "rgba(255,255,255,0.1)", padding: "8px 16px", borderRadius: "999px", marginBottom: "16px" }}>
             DoorDash True Profit Calculator
           </div>
-          <h1 style={{ fontSize: "42px", lineHeight: 1.05, margin: 0 }}>Are you actually making money?</h1>
+          <h1 style={{ fontSize: "42px", lineHeight: 1.05, margin: 0 }}>Most drivers overestimate their real pay.</h1>
           <p style={{ maxWidth: "720px", margin: "16px auto 0", color: "#cbd5e1", fontSize: "18px" }}>
-            Estimate your real DoorDash profit after gas, insurance, maintenance, depreciation, phone costs, and taxes.
+            Calculate your real DoorDash profit after gas, depreciation, insurance, maintenance, phone costs, and taxes.
           </p>
           <div style={{ marginTop: "14px", display: "inline-block", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", padding: "10px 16px", borderRadius: "14px", color: "#e2e8f0", fontSize: "14px" }}>
-            Many drivers overestimate take-home pay because they ignore taxes, depreciation, and vehicle wear.
+            Gross earnings can look strong while vehicle costs quietly reduce real take-home pay.
           </div>
           <p style={{ maxWidth: "720px", margin: "16px auto 0", color: "#cbd5e1", fontSize: "18px" }}>
           </p>
@@ -423,10 +421,10 @@ export default function DoorDashProfitCalculator() {
             <h2 style={{ marginTop: 0 }}>Enter your weekly numbers</h2>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
-              <label style={labelStyle}>DoorDash revenue<input style={inputStyle} type="number" value={revenue} onChange={(e) => setRevenue(cleanNumber(e.target.value))} /></label>
+              <label style={labelStyle}>Weekly gross earnings<input style={inputStyle} type="number" value={revenue} onChange={(e) => setRevenue(cleanNumber(e.target.value))} /></label>
               <label style={labelStyle}>Hours worked<input style={inputStyle} type="number" value={hours} step="0.5" onChange={(e) => setHours(cleanNumber(e.target.value))} /></label>
               <label style={labelStyle}>Miles driven<input style={inputStyle} type="number" value={miles} step="1" onChange={(e) => setMiles(cleanNumber(e.target.value))} /></label>
-              <label style={labelStyle}>Vehicle MPG<input style={inputStyle} type="number" value={mpg} step="0.1" onChange={(e) => setMpg(cleanNumber(e.target.value))} /></label>
+              <label style={labelStyle}>Vehicle fuel efficiency (MPG)<input style={inputStyle} type="number" value={mpg} step="0.1" onChange={(e) => setMpg(cleanNumber(e.target.value))} /></label>
             </div>
 
             <button type="button" onClick={() => setShowAdvanced(!showAdvanced)} style={{ marginTop: "18px", background: "transparent", border: 0, color: "#334155", textDecoration: "underline", fontWeight: 700, cursor: "pointer" }}>
@@ -501,8 +499,6 @@ export default function DoorDashProfitCalculator() {
                   </div>
                 </div>
                 <div style={{ background: "#f1f5f9", borderRadius: "16px", padding: "14px" }}><div style={{ color: "#64748b", fontSize: "13px" }}>Profit per mile</div><strong>{formatMoney(profitPerMile)}</strong></div>
-                <div style={{ background: "#f1f5f9", borderRadius: "16px", padding: "14px" }}><div style={{ color: "#64748b", fontSize: "13px" }}>Revenue per mile</div><strong>{formatMoney(revenuePerMile)}</strong></div>
-                <div style={{ background: "#f1f5f9", borderRadius: "16px", padding: "14px" }}><div style={{ color: "#64748b", fontSize: "13px" }}>Expense per mile</div><strong>{formatMoney(expensePerMile)}</strong></div>
               </div>
             </div>
 
@@ -573,12 +569,12 @@ export default function DoorDashProfitCalculator() {
               <div style={{ background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
                 <strong style={{ display: "block", marginBottom: "10px" }}>What top drivers do differently</strong>
                 <p style={{ fontSize: "14px", color: "#475569", lineHeight: 1.7, marginBottom: "14px" }}>
-                  Learn how experienced drivers think about profitability, multi-apping, mileage efficiency, acceptance rates, and real take-home pay.
+                  Most drivers focus on gross earnings. Experienced drivers look at mileage, downtime, taxes, stress, and real take-home pay.
                 </p>
 
                 <div style={{ display: "grid", gap: "10px" }}>
                   <button type="button" onClick={() => setActivePage("multiapp")} style={{ textAlign: "left", background: "white", borderRadius: "12px", padding: "12px", border: "1px solid #e2e8f0", fontSize: "14px", fontWeight: 600, cursor: "pointer" }}>
-                    Multi-app drivers vs single-app drivers: who actually keeps more?
+                    Some multi-app drivers earn up to 3x more — but at what cost?
                   </button>
 
                   <button type="button" onClick={() => setActivePage("cherrypicker")} style={{ textAlign: "left", background: "white", borderRadius: "12px", padding: "12px", border: "1px solid #e2e8f0", fontSize: "14px", fontWeight: 600, cursor: "pointer" }}>
