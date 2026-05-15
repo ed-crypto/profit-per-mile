@@ -123,9 +123,39 @@ export default function DoorDashProfitCalculator() {
     marginBottom: "8px",
   };
 
+  const globalStyles = `
+    * { box-sizing: border-box; }
+    html, body { margin: 0; overflow-x: hidden; }
+    input, button, table { max-width: 100%; }
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12) !important;
+      border-color: #c7d2fe !important;
+    }
+    .soft-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+    @media (max-width: 760px) {
+      .page-shell { padding: 24px 10px !important; }
+      .hero-pill { font-size: 12px; padding: 8px 12px !important; }
+      .hero-title { font-size: 40px !important; line-height: 1.02 !important; letter-spacing: -0.035em !important; }
+      .hero-subtitle { font-size: 16px !important; }
+      .result-number { font-size: 38px !important; }
+      .mobile-tight-card { padding: 18px !important; border-radius: 22px !important; }
+      .mobile-stack { grid-template-columns: 1fr !important; gap: 18px !important; }
+      .mobile-form-grid { grid-template-columns: 1fr !important; }
+      .mobile-article-card { padding: 20px !important; border-radius: 22px !important; }
+      .article-title { font-size: 30px !important; line-height: 1.12 !important; }
+      .article-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      h1, h2, h3, p, strong, span { overflow-wrap: anywhere; }
+    }
+  `;
+
   if (activePage === "multiapp") {
     return (
-      <main style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a" }}>
+      <main className="page-shell" style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a", overflowX: "hidden" }}>
+        <style>{globalStyles}</style>
         <section style={{ maxWidth: "900px", margin: "0 auto" }}>
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
@@ -145,7 +175,7 @@ export default function DoorDashProfitCalculator() {
             </p>
             <div style={{ marginTop: "22px", background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
               <strong style={{ display: "block", marginBottom: "12px" }}>Quick comparison</strong>
-              <div style={{ overflowX: "auto" }}>
+              <div className="article-table-wrap" style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                   <thead>
                     <tr>
@@ -223,7 +253,8 @@ export default function DoorDashProfitCalculator() {
 
   if (activePage === "cherrypicker") {
     return (
-      <main style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a" }}>
+      <main className="page-shell" style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a", overflowX: "hidden" }}>
+        <style>{globalStyles}</style>
         <section style={{ maxWidth: "900px", margin: "0 auto" }}>
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
@@ -292,7 +323,8 @@ export default function DoorDashProfitCalculator() {
 
   if (activePage === "alcoholorders") {
     return (
-      <main style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a" }}>
+      <main className="page-shell" style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a", overflowX: "hidden" }}>
+        <style>{globalStyles}</style>
         <section style={{ maxWidth: "900px", margin: "0 auto" }}>
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
@@ -353,7 +385,8 @@ export default function DoorDashProfitCalculator() {
 
   if (activePage === "grosspay") {
     return (
-      <main style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a" }}>
+      <main className="page-shell" style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a", overflowX: "hidden" }}>
+        <style>{globalStyles}</style>
         <section style={{ maxWidth: "900px", margin: "0 auto" }}>
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
@@ -382,7 +415,7 @@ export default function DoorDashProfitCalculator() {
 
             <div style={{ marginTop: "22px", background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
               <strong style={{ display: "block", marginBottom: "12px" }}>Gross pay vs real profitability example</strong>
-              <div style={{ overflowX: "auto" }}>
+              <div className="article-table-wrap" style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
                   <thead>
                     <tr>
@@ -423,39 +456,16 @@ export default function DoorDashProfitCalculator() {
   }
 
   return (
-    <main style={{ minHeight: "100vh", background: "linear-gradient(135deg, #020617 0%, #0f172a 48%, #1e293b 100%)", padding: "32px 12px", color: "#0f172a", overflowX: "hidden" }}>
-      <style>{`
-        * { box-sizing: border-box; }
-        html, body { overflow-x: hidden; }
-        input, button { max-width: 100%; }
-        .article-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12) !important;
-          border-color: #c7d2fe !important;
-        }
-        .soft-button:hover {
-          transform: translateY(-1px);
-          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
-        }
-        @media (max-width: 640px) {
-          .hero-pill { font-size: 12px; padding: 8px 12px !important; }
-          .result-number { font-size: 40px !important; }
-          .mobile-tight-card { padding: 18px !important; border-radius: 22px !important; }
-          .article-title { font-size: 30px !important; }
-          .mobile-stack { grid-template-columns: 1fr !important; gap: 18px !important; }
-          .mobile-form-grid { grid-template-columns: 1fr !important; }
-          .mobile-article-card { padding: 22px !important; }
-          h1 { word-break: normal; overflow-wrap: anywhere; }
-        }
-      `}</style>
+    <main className="page-shell" style={{ minHeight: "100vh", background: "linear-gradient(135deg, #020617 0%, #0f172a 48%, #1e293b 100%)", padding: "32px 12px", color: "#0f172a", overflowX: "hidden" }}>
+      <style>{globalStyles}</style>
       <section style={{ maxWidth: "1120px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", color: "white", marginBottom: "36px" }}>
           <div className="hero-pill" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.16)", padding: "9px 16px", borderRadius: "999px", marginBottom: "18px", boxShadow: "0 12px 30px rgba(0,0,0,0.18)" }}>
             <span style={{ width: "8px", height: "8px", borderRadius: "999px", background: "#22c55e", display: "inline-block" }} />
             DoorDash True Profit Calculator
           </div>
-          <h1 style={{ fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 0.96, letterSpacing: "-0.05em", margin: 0, textShadow: "0 20px 60px rgba(0,0,0,0.35)" }}>Most drivers overestimate their real pay.</h1>
-          <p style={{ maxWidth: "720px", margin: "16px auto 0", color: "#cbd5e1", fontSize: "18px" }}>
+          <h1 className="hero-title" style={{ fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 0.96, letterSpacing: "-0.05em", margin: 0, textShadow: "0 20px 60px rgba(0,0,0,0.35)" }}>Most drivers overestimate their real pay.</h1>
+          <p className="hero-subtitle" style={{ maxWidth: "720px", margin: "16px auto 0", color: "#cbd5e1", fontSize: "18px" }}>
             Calculate your real DoorDash profit after gas, depreciation, insurance, maintenance, phone costs, and taxes.
           </p>
           <div style={{ marginTop: "14px", display: "inline-block", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", padding: "10px 16px", borderRadius: "14px", color: "#e2e8f0", fontSize: "14px" }}>
@@ -465,7 +475,7 @@ export default function DoorDashProfitCalculator() {
           </p>
         </div>
 
-        <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))", gap: "28px", alignItems: "start" }}>
+        <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px", alignItems: "start" }}>
           <div className="mobile-tight-card" style={cardStyle}>
             <h2 style={{ marginTop: 0, marginBottom: "6px", fontSize: "26px", letterSpacing: "-0.02em" }}>Enter your weekly numbers</h2>
             <p style={{ marginTop: 0, marginBottom: "22px", color: "#64748b", lineHeight: 1.6 }}>Use gross pay before subtracting gas, maintenance, taxes, or vehicle costs.</p>
