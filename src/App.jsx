@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function DoorDashProfitCalculator() {
   const [revenue, setRevenue] = useState(850);
@@ -10,6 +10,10 @@ export default function DoorDashProfitCalculator() {
   const [showBreakdown, setShowBreakdown] = useState(false);
   const [showYearlyView, setShowYearlyView] = useState(false);
   const [activePage, setActivePage] = useState("calculator");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [activePage]);
 
   const [gasPrice, setGasPrice] = useState(4.5);
   const [insuranceMonthly, setInsuranceMonthly] = useState(160);
@@ -81,17 +85,21 @@ export default function DoorDashProfitCalculator() {
 
   const inputStyle = {
     width: "100%",
-    padding: "10px",
+    padding: "12px 13px",
     border: "1px solid #cbd5e1",
-    borderRadius: "10px",
-    marginTop: "6px",
+    borderRadius: "14px",
+    marginTop: "7px",
+    fontSize: "16px",
+    background: "#ffffff",
+    boxShadow: "inset 0 1px 2px rgba(15,23,42,0.05)",
   };
 
   const cardStyle = {
-    background: "white",
-    borderRadius: "24px",
-    padding: "24px",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.18)",
+    background: "rgba(255,255,255,0.96)",
+    borderRadius: "28px",
+    padding: "28px",
+    boxShadow: "0 24px 70px rgba(0,0,0,0.22)",
+    border: "1px solid rgba(226,232,240,0.9)",
   };
 
   const labelStyle = {
@@ -122,10 +130,18 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={cardStyle}>
-            <h1 style={{ marginTop: 0, fontSize: "36px" }}>Some multi-app drivers earn up to 3x more — but at what cost?</h1>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
-              Multi-apping can increase gross earnings and reduce downtime by giving drivers more order options. But it can also increase app-switching stress, decision fatigue, and the risk of inefficient routing if orders are not selected carefully. The winner is not always the driver with the highest weekly revenue.
+          <article style={{ ...cardStyle, padding: "36px" }}>
+            <h1 style={{ marginTop: 0, marginBottom: "18px", fontSize: "40px", lineHeight: 1.1 }}>Some multi-app drivers earn up to 3x more — but at what cost?</h1>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
+              Some drivers claim multi-apping completely changed their earnings. Others say it increased stress, mileage, distractions, and burnout so much that it stopped feeling worth it.
+            </p>
+
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
+              The confusing part is that both groups can be right at the same time. Some drivers dramatically increase revenue by reducing downtime and getting access to more orders. Others accidentally increase dead miles, stack inefficient routes, and create constant app-switching chaos.
+            </p>
+
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
+              The real question is not whether multi-apping increases gross revenue. The real question is whether the extra complexity actually improves after-expense hourly pay.
             </p>
             <div style={{ marginTop: "22px", background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
               <strong style={{ display: "block", marginBottom: "12px" }}>Quick comparison</strong>
@@ -167,18 +183,18 @@ export default function DoorDashProfitCalculator() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "16px", marginTop: "20px" }}>
               <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "18px", padding: "18px" }}>
                 <h3 style={{ marginTop: 0 }}>Single-app driver</h3>
-                <p style={{ color: "#475569", lineHeight: 1.7 }}>
+                <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
                   Simpler workflow, fewer distractions, less app-switching stress, and often fewer miles. But slow periods can crush hourly earnings if there are not enough good orders.
                 </p>
               </div>
               <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "18px", padding: "18px" }}>
                 <h3 style={{ marginTop: 0 }}>Multi-app driver</h3>
-                <p style={{ color: "#475569", lineHeight: 1.7 }}>
+                <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
                   More order flow and less downtime, but potentially more miles, more stress, more decisions, and a higher chance of taking inefficient routes.
                 </p>
               </div>
             </div>
-            <div style={{ marginTop: "24px", background: "#eff6ff", borderRadius: "18px", padding: "18px", border: "1px solid #bfdbfe" }}>
+            <div style={{ marginTop: "34px", background: "#eff6ff", borderRadius: "22px", padding: "24px", border: "1px solid #bfdbfe" }}>
               <h2 style={{ marginTop: 0 }}>What the research shows</h2>
               <p style={{ color: "#1e3a8a", lineHeight: 1.7 }}>
                 Gridwise Analytics reported that drivers who multi-app consistently earn more total weekly revenue than single-platform drivers because they reduce downtime and gain access to more order opportunities across apps. One Gridwise analysis found that some multi-app drivers earned up to 3x more weekly revenue than single-app drivers in certain markets and time periods.
@@ -188,15 +204,15 @@ export default function DoorDashProfitCalculator() {
               </p>
             </div>
 
-            <div style={{ marginTop: "22px", background: "#ecfccb", borderRadius: "18px", padding: "18px", border: "1px solid #bef264" }}>
-              <strong style={{ display: "block", marginBottom: "6px", color: "#365314" }}>Key takeaway</strong>
+            <div style={{ marginTop: "40px", background: "#ecfccb", borderRadius: "22px", padding: "24px", border: "1px solid #bef264" }}>
+              <strong style={{ display: "block", marginBottom: "6px", color: "#365314" }}>Bottom line</strong>
               <div style={{ color: "#365314", lineHeight: 1.7 }}>
-                Multi-apping often increases gross revenue, but the real winner is the driver with the strongest after-expense hourly pay and mileage efficiency.
+                Multi-apping often increases gross revenue, but the highest earners are usually the drivers who control downtime without letting mileage, stress, and operational complexity spiral out of control.
               </div>
             </div>
 
-            <h2>The key metric</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>The key metric</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Compare profit per mile and hourly pay after expenses, not just gross earnings. A multi-app driver making more revenue can still keep less if mileage and vehicle costs rise too fast.
             </p>
           </article>
@@ -212,13 +228,21 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={cardStyle}>
+          <article style={{ ...cardStyle, padding: "36px" }}>
             <h1 style={{ marginTop: 0, fontSize: "36px" }}>Cherry picking strategies: do low acceptance rates increase real profit?</h1>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
-              Cherry picking is one of the most debated gig-delivery strategies. Some drivers aggressively reject low-paying, high-mileage orders to protect profit per mile, while others prioritize steady order flow and lower downtime.
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
+              Some drivers swear that aggressively rejecting low-paying orders completely transformed their profitability. Others say cherry picking destroyed their order flow and left them sitting in parking lots waiting for offers.
             </p>
-            <h2>When cherry picking can work well</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
+              The frustrating reality is that the same strategy can work extremely well in one market and fail badly in another. Market density, wait times, competition, and order quality all change the outcome.
+            </p>
+
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
+              The real goal is not achieving a low acceptance rate. The goal is maximizing real after-expense hourly profit.
+            </p>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>When cherry picking can work well</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               In dense markets with strong order volume, cherry pickers can sometimes maintain high hourly earnings while driving fewer miles and reducing unnecessary vehicle wear.
             </p>
             <div style={{ marginTop: "20px", background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
@@ -239,11 +263,11 @@ export default function DoorDashProfitCalculator() {
               </div>
             </div>
 
-            <h2>Potential downsides</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>Potential downsides</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               However, in weaker suburban markets, aggressive cherry picking can also increase idle time and reduce total order volume enough to hurt overall earnings.
             </p>
-            <div style={{ marginTop: "24px", background: "#eff6ff", borderRadius: "18px", padding: "18px", border: "1px solid #bfdbfe" }}>
+            <div style={{ marginTop: "34px", background: "#eff6ff", borderRadius: "22px", padding: "24px", border: "1px solid #bfdbfe" }}>
               <h2 style={{ marginTop: 0 }}>What real-world driver studies found</h2>
               <p style={{ color: "#1e3a8a", lineHeight: 1.7 }}>
                 Real-world driver experiments found that cherry picking can improve profit per mile and reduce unnecessary vehicle wear by rejecting low-paying, high-mileage orders. Many experienced cherry pickers target roughly $1.50–$2.00+ per mile instead of focusing only on gross payout size.
@@ -256,8 +280,8 @@ export default function DoorDashProfitCalculator() {
               </p>
             </div>
 
-            <h2>The real answer</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>The real answer</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               The better strategy is the one that produces higher after-expense hourly pay, not the one that looks better inside the app.
             </p>
           </article>
@@ -273,23 +297,23 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={cardStyle}>
+          <article style={{ ...cardStyle, padding: "36px" }}>
             <h1 style={{ marginTop: 0, fontSize: "36px" }}>Are alcohol delivery orders worth it for gig drivers?</h1>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Alcohol orders can sometimes produce larger tips and higher payouts than normal food deliveries, especially during evenings, weekends, and sporting events. But they also introduce additional legal, safety, and operational risks.
             </p>
 
-            <h2>Potential advantages</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>Potential advantages</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Some drivers report that alcohol orders can improve earnings because order totals are often higher and customers may tip more generously. Alcohol deliveries can also remain busy during late-night hours when restaurant demand slows down.
             </p>
 
-            <h2>Potential downsides</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>Potential downsides</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Alcohol deliveries often require ID verification, customer interaction at the door, and additional compliance checks. Drivers may also face intoxicated customers, fake IDs, contract violation risk, or uncomfortable late-night situations.
             </p>
 
-            <div style={{ marginTop: "24px", background: "#eff6ff", borderRadius: "18px", padding: "18px", border: "1px solid #bfdbfe" }}>
+            <div style={{ marginTop: "34px", background: "#eff6ff", borderRadius: "22px", padding: "24px", border: "1px solid #bfdbfe" }}>
               <h2 style={{ marginTop: 0 }}>What studies and platform data show</h2>
               <p style={{ color: "#1e3a8a", lineHeight: 1.7 }}>
                 Multiple public-health and alcohol-delivery studies found that age verification failures remain a major issue in alcohol delivery. One 2025 mystery-shopping study reported that more than 80% of test alcohol deliveries were completed without proper ID verification.
@@ -302,7 +326,7 @@ export default function DoorDashProfitCalculator() {
               </p>
             </div>
 
-            <div style={{ marginTop: "22px", background: "#fee2e2", borderRadius: "18px", padding: "18px", border: "1px solid #fca5a5" }}>
+            <div style={{ marginTop: "34px", background: "#fee2e2", borderRadius: "22px", padding: "24px", border: "1px solid #fca5a5" }}>
               <strong style={{ display: "block", marginBottom: "8px", color: "#991b1b" }}>Higher-risk situations</strong>
               <ul style={{ color: "#991b1b", lineHeight: 1.8, paddingLeft: "20px", marginBottom: 0 }}>
                 <li>Late-night apartment deliveries</li>
@@ -312,13 +336,13 @@ export default function DoorDashProfitCalculator() {
               </ul>
             </div>
 
-            <h2>Ways drivers try to reduce risk</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>Ways drivers try to reduce risk</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Experienced drivers often avoid rushing alcohol deliveries, carefully verify IDs, avoid unsafe-feeling situations, and stay cautious during late-night deliveries. Some drivers also avoid alcohol orders entirely in certain neighborhoods or time windows.
             </p>
 
-            <h2>The real question</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>The real question</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Alcohol deliveries may increase gross earnings for some drivers, but the additional stress, compliance burden, customer interaction, and legal exposure may not be worth the tradeoff for everyone.
             </p>
           </article>
@@ -334,16 +358,16 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={cardStyle}>
+          <article style={{ ...cardStyle, padding: "36px" }}>
             <h1 style={{ marginTop: 0, fontSize: "36px" }}>Why some drivers earn more gross pay but keep less after expenses</h1>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Gross earnings screenshots can be misleading because they ignore gas, depreciation, maintenance, insurance, phone costs, taxes, and unpaid repositioning miles.
             </p>
-            <h2>Example</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>Example</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Driver A earns $1,100 but drives 1,100 miles. Driver B earns $850 but drives 500 miles. Driver A may look better in the app, but Driver B may keep more profit after vehicle costs.
             </p>
-            <div style={{ marginTop: "24px", background: "#eff6ff", borderRadius: "18px", padding: "18px", border: "1px solid #bfdbfe" }}>
+            <div style={{ marginTop: "34px", background: "#eff6ff", borderRadius: "22px", padding: "24px", border: "1px solid #bfdbfe" }}>
               <h2 style={{ marginTop: 0 }}>What research shows</h2>
               <p style={{ color: "#1e3a8a", lineHeight: 1.7 }}>
                 Academic studies of rideshare and gig-work platforms found that gross earnings alone often fail to show real driver profitability. Driver outcomes can vary significantly based on trip distance, waiting time, location, time of day, unpaid repositioning, and post-dropoff earning opportunities.
@@ -388,8 +412,8 @@ export default function DoorDashProfitCalculator() {
               </div>
             </div>
 
-            <h2>What to track instead</h2>
-            <p style={{ color: "#475569", lineHeight: 1.7 }}>
+            <h2 style={{ marginTop: "36px", marginBottom: "14px", fontSize: "28px" }}>What to track instead</h2>
+            <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Track hourly after tax, profit per mile, total miles, dead miles, and vehicle costs. Those numbers reveal whether the work is actually profitable.
             </p>
           </article>
@@ -399,13 +423,31 @@ export default function DoorDashProfitCalculator() {
   }
 
   return (
-    <main style={{ minHeight: "100vh", background: "#0f172a", padding: "32px 16px", color: "#0f172a" }}>
+    <main style={{ minHeight: "100vh", background: "linear-gradient(135deg, #020617 0%, #0f172a 48%, #1e293b 100%)", padding: "40px 16px", color: "#0f172a" }}>
+      <style>{`
+        .article-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12) !important;
+          border-color: #c7d2fe !important;
+        }
+        .soft-button:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+        }
+        @media (max-width: 640px) {
+          .hero-pill { font-size: 13px; }
+          .result-number { font-size: 42px !important; }
+          .mobile-tight-card { padding: 20px !important; border-radius: 22px !important; }
+          .article-title { font-size: 32px !important; }
+        }
+      `}</style>
       <section style={{ maxWidth: "1120px", margin: "0 auto" }}>
-        <div style={{ textAlign: "center", color: "white", marginBottom: "32px" }}>
-          <div style={{ display: "inline-block", background: "rgba(255,255,255,0.1)", padding: "8px 16px", borderRadius: "999px", marginBottom: "16px" }}>
+        <div style={{ textAlign: "center", color: "white", marginBottom: "36px" }}>
+          <div className="hero-pill" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.16)", padding: "9px 16px", borderRadius: "999px", marginBottom: "18px", boxShadow: "0 12px 30px rgba(0,0,0,0.18)" }}>
+            <span style={{ width: "8px", height: "8px", borderRadius: "999px", background: "#22c55e", display: "inline-block" }} />
             DoorDash True Profit Calculator
           </div>
-          <h1 style={{ fontSize: "42px", lineHeight: 1.05, margin: 0 }}>Most drivers overestimate their real pay.</h1>
+          <h1 style={{ fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 0.96, letterSpacing: "-0.05em", margin: 0, textShadow: "0 20px 60px rgba(0,0,0,0.35)" }}>Most drivers overestimate their real pay.</h1>
           <p style={{ maxWidth: "720px", margin: "16px auto 0", color: "#cbd5e1", fontSize: "18px" }}>
             Calculate your real DoorDash profit after gas, depreciation, insurance, maintenance, phone costs, and taxes.
           </p>
@@ -416,9 +458,10 @@ export default function DoorDashProfitCalculator() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
-          <div style={cardStyle}>
-            <h2 style={{ marginTop: 0 }}>Enter your weekly numbers</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px", alignItems: "start" }}>
+          <div className="mobile-tight-card" style={cardStyle}>
+            <h2 style={{ marginTop: 0, marginBottom: "6px", fontSize: "26px", letterSpacing: "-0.02em" }}>Enter your weekly numbers</h2>
+            <p style={{ marginTop: 0, marginBottom: "22px", color: "#64748b", lineHeight: 1.6 }}>Use gross pay before subtracting gas, maintenance, taxes, or vehicle costs.</p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
               <label style={labelStyle}>Weekly gross earnings<input style={inputStyle} type="number" value={revenue} onChange={(e) => setRevenue(cleanNumber(e.target.value))} /></label>
@@ -457,9 +500,10 @@ export default function DoorDashProfitCalculator() {
           </div>
 
           <div>
-            <div style={cardStyle}>
-              <p style={{ color: "#64748b", fontWeight: 700, textTransform: "uppercase", fontSize: "13px" }}>{showYearlyView ? "Estimated yearly take-home profit" : "Estimated hourly after-tax pay"}</p>
-              <div style={{ fontSize: "44px", fontWeight: 900 }}>{formatMoney(showYearlyView ? yearlyTakeHome : hourlyAfterTax)}</div>
+            <div className="mobile-tight-card" style={{ ...cardStyle, position: "relative", overflow: "hidden" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "6px", background: hourlyAfterTax < 14 ? "#ef4444" : hourlyAfterTax < 20 ? "#f59e0b" : "#22c55e" }} />
+              <p style={{ color: "#64748b", fontWeight: 800, textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.08em" }}>{showYearlyView ? "Estimated yearly take-home profit" : "Estimated hourly after-tax pay"}</p>
+              <div className="result-number" style={{ fontSize: "52px", fontWeight: 950, letterSpacing: "-0.05em", lineHeight: 1 }}>{formatMoney(showYearlyView ? yearlyTakeHome : hourlyAfterTax)}</div>
               <p style={{ color: "#64748b" }}>{showYearlyView ? "After estimated vehicle costs and taxes." : "Your estimated real hourly pay after expenses and taxes."}</p>
               <div style={{ marginTop: "10px", display: "flex", gap: "10px", flexWrap: "wrap" }}>
                 <button type="button" onClick={() => setShowYearlyView(false)} style={{ background: !showYearlyView ? "#0f172a" : "#e2e8f0", color: !showYearlyView ? "white" : "#0f172a", border: 0, borderRadius: "999px", padding: "8px 14px", cursor: "pointer", fontWeight: 700 }}>
@@ -474,8 +518,45 @@ export default function DoorDashProfitCalculator() {
                   Based on your current weekly inputs, your estimated annual DoorDash revenue is <strong>{formatMoney(yearlyRevenue)}</strong> and projected annual take-home pay is <strong>{formatMoney(yearlyTakeHome)}</strong>.
                 </div>
               )}
-              <div style={{ marginTop: "10px", background: "#f8fafc", borderRadius: "14px", padding: "12px", fontSize: "14px", color: "#334155", border: "1px solid #e2e8f0" }}>
-                DoorDash shows gross earnings of <strong>{formatMoney(showYearlyView ? yearlyRevenue : revenueNumber)}</strong>, but after estimated expenses and taxes your projected take-home pay is <strong>{formatMoney(showYearlyView ? yearlyTakeHome : profitAfterTax)}</strong>.
+              <div style={{ marginTop: "14px", background: "#f8fafc", borderRadius: "18px", padding: "16px", fontSize: "14px", color: "#334155", border: "1px solid #e2e8f0" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px", fontWeight: 700 }}>
+                  <span>💰 Gross earnings</span>
+                  <span>{formatMoney(showYearlyView ? yearlyRevenue : revenueNumber)}</span>
+                </div>
+
+                <div style={{ height: "14px", background: "#e2e8f0", borderRadius: "999px", overflow: "hidden", display: "flex" }}>
+                  <div style={{ width: `${Math.min((totalExpensesBeforeTax / Math.max(revenueNumber,1)) * 100, 100)}%`, background: "#ef4444" }} />
+                  <div style={{ flex: 1, background: "#22c55e" }} />
+                </div>
+
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "10px", marginTop: "14px" }}>
+                  <div style={{ background: "white", borderRadius: "14px", padding: "12px", border: "1px solid #e2e8f0" }}>
+                    <div style={{ fontSize: "12px", color: "#64748b" }}>⛽ Vehicle costs</div>
+                    <strong style={{ color: "#dc2626" }}>{formatMoney(totalExpensesBeforeTax)}</strong>
+                  </div>
+
+                  <div style={{ background: "white", borderRadius: "14px", padding: "12px", border: "1px solid #e2e8f0" }}>
+                    <div style={{ fontSize: "12px", color: "#64748b" }}>✅ Real take-home</div>
+                    <strong style={{ color: "#166534" }}>{formatMoney(showYearlyView ? yearlyTakeHome : profitAfterTax)}</strong>
+                  </div>
+                </div>
+
+                <div style={{ marginTop: "16px", background: "white", borderRadius: "16px", padding: "14px", border: "1px solid #e2e8f0" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: "12px", fontSize: "12px", color: "#64748b", marginBottom: "10px", fontWeight: 700 }}>
+                    <span>Where the money goes</span>
+                    <span>{formatMoney(revenueNumber)} gross</span>
+                  </div>
+                  <div style={{ height: "18px", borderRadius: "999px", overflow: "hidden", display: "flex", background: "#e2e8f0" }}>
+                    <div title="Gas" style={{ width: `${Math.min((gasCost / Math.max(revenueNumber, 1)) * 100, 100)}%`, background: "#f97316" }} />
+                    <div title="Maintenance" style={{ width: `${Math.min((maintenance / Math.max(revenueNumber, 1)) * 100, 100)}%`, background: "#eab308" }} />
+                    <div title="Depreciation" style={{ width: `${Math.min((depreciation / Math.max(revenueNumber, 1)) * 100, 100)}%`, background: "#ef4444" }} />
+                    <div title="Taxes" style={{ width: `${Math.min((estimatedTaxes / Math.max(revenueNumber, 1)) * 100, 100)}%`, background: "#8b5cf6" }} />
+                    <div title="Take-home" style={{ flex: 1, background: "#22c55e" }} />
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "10px", fontSize: "11px", color: "#475569" }}>
+                    <span>🟧 Gas</span><span>🟨 Maintenance</span><span>🟥 Depreciation</span><span>🟪 Taxes</span><span>🟩 Take-home</span>
+                  </div>
+                </div>
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px", marginTop: "20px" }}>
@@ -498,7 +579,7 @@ export default function DoorDashProfitCalculator() {
                       : "Strong earnings"}
                   </div>
                 </div>
-                <div style={{ background: "#f1f5f9", borderRadius: "16px", padding: "14px" }}><div style={{ color: "#64748b", fontSize: "13px" }}>Profit per mile</div><strong>{formatMoney(profitPerMile)}</strong></div>
+                <div style={{ background: "#f1f5f9", borderRadius: "16px", padding: "14px" }}><div style={{ color: "#64748b", fontSize: "13px" }}>Profit per mile</div><strong>{formatMoney(profitPerMile)}</strong><div style={{ marginTop: "5px", fontSize: "12px", color: "#64748b" }}>After estimated expenses and taxes</div></div>
               </div>
             </div>
 
@@ -565,27 +646,27 @@ export default function DoorDashProfitCalculator() {
                 </div>
               )}
             </div>
-            <div style={{ background: "white", borderRadius: "24px", padding: "24px", marginTop: "24px", boxShadow: "0 20px 40px rgba(0,0,0,0.12)" }}>
-              <div style={{ background: "#f8fafc", borderRadius: "18px", padding: "18px", border: "1px solid #e2e8f0" }}>
+            <div style={{ background: "rgba(255,255,255,0.96)", borderRadius: "28px", padding: "28px", marginTop: "24px", boxShadow: "0 20px 50px rgba(0,0,0,0.14)", border: "1px solid rgba(226,232,240,0.9)" }}>
+              <div style={{ background: "linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)", borderRadius: "22px", padding: "22px", border: "1px solid #e2e8f0" }}>
                 <strong style={{ display: "block", marginBottom: "10px" }}>What top drivers do differently</strong>
                 <p style={{ fontSize: "14px", color: "#475569", lineHeight: 1.7, marginBottom: "14px" }}>
                   Most drivers focus on gross earnings. Experienced drivers look at mileage, downtime, taxes, stress, and real take-home pay.
                 </p>
 
                 <div style={{ display: "grid", gap: "10px" }}>
-                  <button type="button" onClick={() => setActivePage("multiapp")} style={{ textAlign: "left", background: "white", borderRadius: "12px", padding: "12px", border: "1px solid #e2e8f0", fontSize: "14px", fontWeight: 600, cursor: "pointer" }}>
+                  <button className="article-card" type="button" onClick={() => setActivePage("multiapp")} style={{ textAlign: "left", background: "white", borderRadius: "16px", padding: "16px", border: "1px solid #e2e8f0", fontSize: "15px", fontWeight: 700, cursor: "pointer", boxShadow: "0 6px 18px rgba(15,23,42,0.06)", transition: "0.2s ease" }}>
                     Some multi-app drivers earn up to 3x more — but at what cost?
                   </button>
 
-                  <button type="button" onClick={() => setActivePage("cherrypicker")} style={{ textAlign: "left", background: "white", borderRadius: "12px", padding: "12px", border: "1px solid #e2e8f0", fontSize: "14px", fontWeight: 600, cursor: "pointer" }}>
+                  <button className="article-card" type="button" onClick={() => setActivePage("cherrypicker")} style={{ textAlign: "left", background: "white", borderRadius: "16px", padding: "16px", border: "1px solid #e2e8f0", fontSize: "15px", fontWeight: 700, cursor: "pointer", boxShadow: "0 6px 18px rgba(15,23,42,0.06)", transition: "0.2s ease" }}>
                     Cherry picking strategies: do low acceptance rates increase real profit?
                   </button>
 
-                  <button type="button" onClick={() => setActivePage("grosspay")} style={{ textAlign: "left", background: "white", borderRadius: "12px", padding: "12px", border: "1px solid #e2e8f0", fontSize: "14px", fontWeight: 600, cursor: "pointer" }}>
+                  <button className="article-card" type="button" onClick={() => setActivePage("grosspay")} style={{ textAlign: "left", background: "white", borderRadius: "16px", padding: "16px", border: "1px solid #e2e8f0", fontSize: "15px", fontWeight: 700, cursor: "pointer", boxShadow: "0 6px 18px rgba(15,23,42,0.06)", transition: "0.2s ease" }}>
                     Why some drivers earn more gross pay but keep less after expenses
                   </button>
 
-                  <button type="button" onClick={() => setActivePage("alcoholorders")} style={{ textAlign: "left", background: "white", borderRadius: "12px", padding: "12px", border: "1px solid #e2e8f0", fontSize: "14px", fontWeight: 600, cursor: "pointer" }}>
+                  <button className="article-card" type="button" onClick={() => setActivePage("alcoholorders")} style={{ textAlign: "left", background: "white", borderRadius: "16px", padding: "16px", border: "1px solid #e2e8f0", fontSize: "15px", fontWeight: 700, cursor: "pointer", boxShadow: "0 6px 18px rgba(15,23,42,0.06)", transition: "0.2s ease" }}>
                     Are alcohol delivery orders worth the extra risk?
                   </button>
                 </div>
