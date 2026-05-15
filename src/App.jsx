@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function DoorDashProfitCalculator() {
+export default function GigDeliveryProfitCalculator() {
   const [revenue, setRevenue] = useState(850);
   const [hours, setHours] = useState(35);
   const [miles, setMiles] = useState(620);
@@ -462,11 +462,11 @@ export default function DoorDashProfitCalculator() {
         <div style={{ textAlign: "center", color: "white", marginBottom: "36px" }}>
           <div className="hero-pill" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.16)", padding: "9px 16px", borderRadius: "999px", marginBottom: "18px", boxShadow: "0 12px 30px rgba(0,0,0,0.18)" }}>
             <span style={{ width: "8px", height: "8px", borderRadius: "999px", background: "#22c55e", display: "inline-block" }} />
-            DoorDash True Profit Calculator
+            Gig Delivery Profit Calculator
           </div>
           <h1 className="hero-title" style={{ fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 0.96, letterSpacing: "-0.05em", margin: 0, textShadow: "0 20px 60px rgba(0,0,0,0.35)" }}>Most drivers overestimate their real pay.</h1>
           <p className="hero-subtitle" style={{ maxWidth: "720px", margin: "16px auto 0", color: "#cbd5e1", fontSize: "18px" }}>
-            Calculate your real DoorDash profit after gas, depreciation, insurance, maintenance, phone costs, and taxes.
+            Calculate your real delivery-driver profit after gas, depreciation, insurance, maintenance, phone costs, and taxes.
           </p>
           <div style={{ marginTop: "14px", display: "inline-block", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)", padding: "10px 16px", borderRadius: "14px", color: "#e2e8f0", fontSize: "14px" }}>
             Gross earnings can look strong while vehicle costs quietly reduce real take-home pay.
@@ -532,7 +532,7 @@ export default function DoorDashProfitCalculator() {
               </div>
               {showYearlyView && (
                 <div style={{ marginTop: "12px", background: "#eff6ff", border: "1px solid #bfdbfe", borderRadius: "14px", padding: "14px", fontSize: "14px", color: "#1e3a8a" }}>
-                  Based on your current weekly inputs, your estimated annual DoorDash revenue is <strong>{formatMoney(yearlyRevenue)}</strong> and projected annual take-home pay is <strong>{formatMoney(yearlyTakeHome)}</strong>.
+                  Based on your current weekly inputs, your estimated annual delivery income is <strong>{formatMoney(yearlyRevenue)}</strong> and projected annual take-home pay is <strong>{formatMoney(yearlyTakeHome)}</strong>.
                 </div>
               )}
               <div style={{ marginTop: "14px", background: "#f8fafc", borderRadius: "18px", padding: "16px", fontSize: "14px", color: "#334155", border: "1px solid #e2e8f0" }}>
@@ -693,7 +693,7 @@ export default function DoorDashProfitCalculator() {
             <div style={{ background: "#fffbeb", borderRadius: "24px", padding: "24px", marginTop: "24px" }}>
               <strong>Important note</strong>
               <p style={{ color: "#78350f", fontSize: "14px", marginTop: "10px" }}>
-                This site is independent and is not affiliated with or endorsed by DoorDash.
+                This site is independent and is not affiliated with or endorsed by DoorDash, Uber Eats, Grubhub, Instacart, or any delivery platform.
               </p>
               <p style={{ color: "#78350f", fontSize: "14px" }}>
                 This calculator is for planning and education. It is not tax, legal, insurance, or financial advice.
