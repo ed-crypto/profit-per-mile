@@ -130,8 +130,8 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={{ ...cardStyle, padding: "36px" }}>
-            <h1 style={{ marginTop: 0, marginBottom: "18px", fontSize: "40px", lineHeight: 1.1 }}>Some multi-app drivers earn up to 3x more — but at what cost?</h1>
+          <article className="mobile-article-card" style={{ ...cardStyle, padding: "36px" }}>
+            <h1 className="article-title" style={{ marginTop: 0, marginBottom: "18px", fontSize: "40px", lineHeight: 1.1 }}>Some multi-app drivers earn up to 3x more — but at what cost?</h1>
             <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Some drivers claim multi-apping completely changed their earnings. Others say it increased stress, mileage, distractions, and burnout so much that it stopped feeling worth it.
             </p>
@@ -228,8 +228,8 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={{ ...cardStyle, padding: "36px" }}>
-            <h1 style={{ marginTop: 0, fontSize: "36px" }}>Cherry picking strategies: do low acceptance rates increase real profit?</h1>
+          <article className="mobile-article-card" style={{ ...cardStyle, padding: "36px" }}>
+            <h1 className="article-title" style={{ marginTop: 0, fontSize: "36px", lineHeight: 1.12 }}>Cherry picking strategies: do low acceptance rates increase real profit?</h1>
             <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Some drivers swear that aggressively rejecting low-paying orders completely transformed their profitability. Others say cherry picking destroyed their order flow and left them sitting in parking lots waiting for offers.
             </p>
@@ -297,8 +297,8 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={{ ...cardStyle, padding: "36px" }}>
-            <h1 style={{ marginTop: 0, fontSize: "36px" }}>Are alcohol delivery orders worth it for gig drivers?</h1>
+          <article className="mobile-article-card" style={{ ...cardStyle, padding: "36px" }}>
+            <h1 className="article-title" style={{ marginTop: 0, fontSize: "36px", lineHeight: 1.12 }}>Are alcohol delivery orders worth it for gig drivers?</h1>
             <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Alcohol orders can sometimes produce larger tips and higher payouts than normal food deliveries, especially during evenings, weekends, and sporting events. But they also introduce additional legal, safety, and operational risks.
             </p>
@@ -358,8 +358,8 @@ export default function DoorDashProfitCalculator() {
           <button type="button" onClick={() => setActivePage("calculator")} style={{ marginBottom: "20px", background: "white", border: 0, borderRadius: "999px", padding: "10px 16px", fontWeight: 700, cursor: "pointer" }}>
             ← Back to calculator
           </button>
-          <article style={{ ...cardStyle, padding: "36px" }}>
-            <h1 style={{ marginTop: 0, fontSize: "36px" }}>Why some drivers earn more gross pay but keep less after expenses</h1>
+          <article className="mobile-article-card" style={{ ...cardStyle, padding: "36px" }}>
+            <h1 className="article-title" style={{ marginTop: 0, fontSize: "36px", lineHeight: 1.12 }}>Why some drivers earn more gross pay but keep less after expenses</h1>
             <p style={{ color: "#475569", lineHeight: 1.9, marginBottom: "22px" }}>
               Gross earnings screenshots can be misleading because they ignore gas, depreciation, maintenance, insurance, phone costs, taxes, and unpaid repositioning miles.
             </p>
@@ -423,8 +423,11 @@ export default function DoorDashProfitCalculator() {
   }
 
   return (
-    <main style={{ minHeight: "100vh", background: "linear-gradient(135deg, #020617 0%, #0f172a 48%, #1e293b 100%)", padding: "40px 16px", color: "#0f172a" }}>
+    <main style={{ minHeight: "100vh", background: "linear-gradient(135deg, #020617 0%, #0f172a 48%, #1e293b 100%)", padding: "32px 12px", color: "#0f172a", overflowX: "hidden" }}>
       <style>{`
+        * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; }
+        input, button { max-width: 100%; }
         .article-card:hover {
           transform: translateY(-2px);
           box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12) !important;
@@ -435,10 +438,14 @@ export default function DoorDashProfitCalculator() {
           box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
         }
         @media (max-width: 640px) {
-          .hero-pill { font-size: 13px; }
-          .result-number { font-size: 42px !important; }
-          .mobile-tight-card { padding: 20px !important; border-radius: 22px !important; }
-          .article-title { font-size: 32px !important; }
+          .hero-pill { font-size: 12px; padding: 8px 12px !important; }
+          .result-number { font-size: 40px !important; }
+          .mobile-tight-card { padding: 18px !important; border-radius: 22px !important; }
+          .article-title { font-size: 30px !important; }
+          .mobile-stack { grid-template-columns: 1fr !important; gap: 18px !important; }
+          .mobile-form-grid { grid-template-columns: 1fr !important; }
+          .mobile-article-card { padding: 22px !important; }
+          h1 { word-break: normal; overflow-wrap: anywhere; }
         }
       `}</style>
       <section style={{ maxWidth: "1120px", margin: "0 auto" }}>
@@ -458,12 +465,12 @@ export default function DoorDashProfitCalculator() {
           </p>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px", alignItems: "start" }}>
+        <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))", gap: "28px", alignItems: "start" }}>
           <div className="mobile-tight-card" style={cardStyle}>
             <h2 style={{ marginTop: 0, marginBottom: "6px", fontSize: "26px", letterSpacing: "-0.02em" }}>Enter your weekly numbers</h2>
             <p style={{ marginTop: 0, marginBottom: "22px", color: "#64748b", lineHeight: 1.6 }}>Use gross pay before subtracting gas, maintenance, taxes, or vehicle costs.</p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
+            <div className="mobile-form-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
               <label style={labelStyle}>Weekly gross earnings<input style={inputStyle} type="number" value={revenue} onChange={(e) => setRevenue(cleanNumber(e.target.value))} /></label>
               <label style={labelStyle}>Hours worked<input style={inputStyle} type="number" value={hours} step="0.5" onChange={(e) => setHours(cleanNumber(e.target.value))} /></label>
               <label style={labelStyle}>Miles driven<input style={inputStyle} type="number" value={miles} step="1" onChange={(e) => setMiles(cleanNumber(e.target.value))} /></label>
@@ -475,7 +482,7 @@ export default function DoorDashProfitCalculator() {
             </button>
 
             {showAdvanced && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px", marginTop: "16px" }}>
+              <div className="mobile-form-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px", marginTop: "16px" }}>
                 <label style={labelStyle}>Gas price<input style={inputStyle} type="number" value={gasPrice} step="0.01" onChange={(e) => setGasPrice(cleanNumber(e.target.value))} /></label>
                 <label style={labelStyle}>Monthly insurance payment<input style={inputStyle} type="number" value={insuranceMonthly} onChange={(e) => setInsuranceMonthly(cleanNumber(e.target.value))} /></label>
                 <label style={labelStyle}>Yearly maintenance costs<input style={inputStyle} type="number" value={annualMaintenanceCost} step="100" onChange={(e) => setAnnualMaintenanceCost(cleanNumber(e.target.value))} /></label>
