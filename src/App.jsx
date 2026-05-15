@@ -475,7 +475,7 @@ export default function DoorDashProfitCalculator() {
           </p>
         </div>
 
-        <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "28px", alignItems: "start" }}>
+        <div className="mobile-stack" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))", gap: "28px", alignItems: "start" }}>
           <div className="mobile-tight-card" style={cardStyle}>
             <h2 style={{ marginTop: 0, marginBottom: "6px", fontSize: "26px", letterSpacing: "-0.02em" }}>Enter your weekly numbers</h2>
             <p style={{ marginTop: 0, marginBottom: "22px", color: "#64748b", lineHeight: 1.6 }}>Use gross pay before subtracting gas, maintenance, taxes, or vehicle costs.</p>
